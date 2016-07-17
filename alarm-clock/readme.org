@@ -1,0 +1,19 @@
+* Alarm clock
+  It plays 'intergalactic' from Beastie boys, and can be 'turned off'
+  by shortcircuiting pin 7 (bcm7).
+* Commands to set up the rpi
+  - sudo modprobe snd_bcm2835
+
+  - By default output will be automatic (hdmi if hdmi supports audio,
+    otherwise analogue). You can force it with:
+  sudo amixer cset numid=3 <n>
+  where n is 0=auto, 1=headphones, 2=hdmi.
+
+  - echo "4" > /sys/class/gpio/export
+  - cat /sys/class/gpio/gpio4/value
+  - ssh pi@192.168.1.38 -o ConnectTimeout=60 sudo date --set="\"`date '+%d %b %Y %H:%M:%S'`\""
+
+* links
+http://elinux.org/RPi_GPIO_Code_Samples#sysfs.2C_part_of_the_raspbian_operating_system
+
+https://learn.sparkfun.com/tutorials/raspberry-gpio
